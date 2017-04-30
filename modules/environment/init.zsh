@@ -46,3 +46,13 @@ if zstyle -t ':prezto:environment:termcap' color; then
   export LESS_TERMCAP_ue=$'\E[0m'          # Ends underline.
   export LESS_TERMCAP_us=$'\E[01;32m'      # Begins underline.
 fi
+
+#
+# Pipsi
+#
+
+if [[ ! -d "${HOME}/.pipsi/venvs" ]]; then
+    mkdir -p ~/.pipsi/venvs
+fi
+export PIPSI_HOME="${HOME}/.pipsi/venvs"
+export PIPSI_BIN_DIR="${HOME}/bin"

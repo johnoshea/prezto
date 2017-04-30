@@ -17,9 +17,13 @@ fi
 # Editors
 #
 
-export EDITOR='nano'
-export VISUAL='nano'
-export PAGER='less'
+export EDITOR='vim'
+export VISUAL='vim'
+if (which most > /dev/null) ; then
+    export PAGER='most'
+else
+    export PAGER='less'
+fi
 
 #
 # Language
@@ -43,8 +47,43 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
-  /usr/local/{bin,sbin}
+  ~/bin
+)
+COREUTILS_PATH=/usr/local/opt/coreutils
+if [[ -d "$COREUTILS_PATH" ]]; then
+  path=(
+    "$COREUTILS_PATH"
+    $path
+  )
+fi
+NODE_PATH="$HOME/.node/bin"
+if [[ -d "$NODE_PATH" ]]; then
+  path=(
+    "$NODE_PATH"
+    $path
+  )
+fi
+SWIFT_PATH="/Library/Developer/Toolchains/swift-latest.xctoolchain"
+if [[ -d "$SWIFT_PATH" ]]; then
+  path=(
+    "$SWIFT_PATH"
+    $path
+  )
+fi
+GO_PATH="$HOME/go/bin"
+if [[ -d "$GO_PATH" ]]; then
+  path=(
+    "$GO_PATH"
+    $path
+  )
+fi
+path=(
   $path
+  /usr/local/{bin,sbin}
+  /usr/bin
+  /bin
+  /usr/sbin
+  /sbin
 )
 
 #

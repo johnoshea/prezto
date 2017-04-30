@@ -299,8 +299,12 @@ for keymap in 'emacs' 'viins'; do
   for key in "$key_info[Escape]"{M,m}
     bindkey -M "$keymap" "$key" copy-prev-shell-word
 
+  # Get help for the command at the start of the line
+  for key in "$key_info[Escape]H" "$key_info[Escape]"{h,H}
+    bindkey -M "$keymap" "$key" run-help
+
   # Use a more flexible push-line.
-  for key in "$key_info[Control]Q" "$key_info[Escape]"{q,Q}
+  for key in "$key_info[Escape]Q" "$key_info[Escape]"{q,Q}
     bindkey -M "$keymap" "$key" push-line-or-edit
 
   # Bind Shift + Tab to go to the previous menu item.

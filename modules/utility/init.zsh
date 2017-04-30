@@ -5,6 +5,7 @@
 #   Robby Russell <robby@planetargon.com>
 #   Suraj N. Kurapati <sunaku@gmail.com>
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
+#   John O'Shea <john.m.oshea@gmail.com>
 #
 
 # Load dependencies.
@@ -32,6 +33,7 @@ alias mkdir='nocorrect mkdir'
 alias mv='nocorrect mv'
 alias mysql='nocorrect mysql'
 alias rm='nocorrect rm'
+alias xmlf='xmllint --format'
 
 # Disable globbing.
 alias bower='noglob bower'
@@ -47,6 +49,7 @@ alias sftp='noglob sftp'
 
 # Define general aliases.
 alias _='sudo'
+alias ss='sudo -s'
 alias b='${(z)BROWSER}'
 alias cp="${aliases[cp]:-cp} -i"
 alias diffu="diff --unified"
@@ -60,6 +63,24 @@ alias pu='pushd'
 alias rm="${aliases[rm]:-rm} -i"
 alias sa='alias | grep -i'
 alias type='type -a'
+
+# Suffix commands
+alias -g G=' | egrep '
+alias -g Gi=' | egrep  -i'
+alias -g Gv=' | egrep  -v'
+alias -g Gvi=' | egrep  -vi'
+alias -g H=' | head '
+alias -g L=' | most '
+alias -g T=' | tee '
+alias -g Wcl=' | wc -l'
+alias -g Wcw=' | wc -w'
+
+# reload zsh config
+alias reload!='source ~/.zshrc'
+
+# Network commands
+alias ping='ping -c 4 '
+alias ping1k='ping -c 1000 '
 
 # ls
 if is-callable 'dircolors'; then
@@ -163,6 +184,7 @@ else
 fi
 
 # Miscellaneous
+alias tl='tmuxp load'
 
 # Serves a directory via HTTP.
 if (( $+commands[python3] )); then
@@ -176,7 +198,7 @@ fi
 #
 
 # Makes a directory and changes to it.
-function mkdcd {
+function mcd {
   [[ -n "$1" ]] && mkdir -p "$1" && builtin cd "$1"
 }
 
