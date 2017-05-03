@@ -56,13 +56,6 @@ if [[ -d "$COREUTILS_PATH" ]]; then
     $path
   )
 fi
-NODE_PATH="$HOME/.node/bin"
-if [[ -d "$NODE_PATH" ]]; then
-  path=(
-    "$NODE_PATH"
-    $path
-  )
-fi
 SWIFT_PATH="/Library/Developer/Toolchains/swift-latest.xctoolchain"
 if [[ -d "$SWIFT_PATH" ]]; then
   path=(
