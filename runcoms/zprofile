@@ -59,13 +59,6 @@ if [[ -d "$SWIFT_PATH" ]]; then
     $path
   )
 fi
-GO_PATH="$HOME/go/bin"
-if [[ -d "$GO_PATH" ]]; then
-  path=(
-    "$GO_PATH"
-    $path
-  )
-fi
 path=(
   $path
   /usr/local/{bin,sbin}
