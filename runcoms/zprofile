@@ -45,20 +45,21 @@ typeset -gU cdpath fpath mailpath path
 path=(
   ~/bin
 )
-COREUTILS_PATH=/usr/local/opt/coreutils
-if [[ -d "$COREUTILS_PATH" ]]; then
+
+EXTRA_PATHS=(
+    /usr/local/opt/coreutils
+    /Library/Developer/Toolchains/swift-latest.xctoolchain
+    ${HOME}/.cargo/bin
+)
+for EXTRA_PATH in $EXTRA_PATHS; do
+  if [[ -d $EXTRA_PATH ]]; then
   path=(
-    "$COREUTILS_PATH"
+    $EXTRA_PATH
     $path
   )
-fi
-SWIFT_PATH="/Library/Developer/Toolchains/swift-latest.xctoolchain"
-if [[ -d "$SWIFT_PATH" ]]; then
-  path=(
-    "$SWIFT_PATH"
-    $path
-  )
-fi
+  fi
+done
+
 path=(
   $path
   /usr/local/{bin,sbin}
