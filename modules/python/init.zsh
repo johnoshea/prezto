@@ -171,6 +171,19 @@ if (( $? && $+commands[conda] )); then
   fi
 fi
 
+# Cache pip downloads
+export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
+
+# No .pyc files please
+export PYTHONDONTWRITEBYTECODE=1
+
+# Don'r allow pip installs outside of virtualenvs unless we use 'gpip'
+export PIP_REQUIRE_VIRTUALENV=true
+function gpip {
+  PIP_REQUIRE_VIRTUALENV="" pip "$@"
+}
+
+
 #
 # Aliases
 #
