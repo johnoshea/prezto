@@ -142,6 +142,9 @@ if zstyle -t ':prezto:module:utility:grep' color; then
   alias grep="${aliases[grep]:-grep} --color=auto"
 fi
 
+# Ripgrep
+alias rg="rg --colors 'path:fg:green' --colors 'path:style:intense' --colors 'line:style:intense' --colors 'line:fg:green' --colors 'line:style:intense' --colors 'match:fg:yellow' --colors 'match:style:bold' --smart-case"
+
 # Mac OS X Everywhere
 if [[ "$OSTYPE" == darwin* ]]; then
   alias o='open'
