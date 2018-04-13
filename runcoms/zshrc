@@ -39,9 +39,6 @@ function chpwd() {
 # that those keys can be used for other things.
 unsetopt flowcontrol
 
-# Remove unwanted _mtools completion (breaks my 'mcd' alias)
-compdef -d mcd
-
 # Put any OS-specific config in ~/.zshrc.OS
 OSNAME=$(uname -s)
 if [[ -r ~/.zshrc.$OSNAME ]]; then
@@ -69,6 +66,3 @@ else
     fi
   fi
 fi
-
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
