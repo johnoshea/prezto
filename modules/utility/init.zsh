@@ -71,6 +71,7 @@ alias -g L=' | less '
 alias -g T=' | tee '
 alias -g Wcl=' | wc -l'
 alias -g Wcw=' | wc -w'
+alias -g Fd=' && figlet DONE'
 
 # Safe ops. Ask the user before doing anything destructive.
 alias rmi="${aliases[rm]:-rm} -i"
