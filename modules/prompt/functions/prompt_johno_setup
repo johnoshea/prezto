@@ -95,6 +95,8 @@ function prompt_johno_setup() {
   num_jobs="JOBS:%j"
   shlvl="SHVL:%L"
 
+  PROMPT_TITLE=$(echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007")
+
   PROMPT='
 ${VPN_PROMPT}%F{blue}[$hist_num $shlvl $num_jobs]%f $USER_ID %F{green}%3~:%f $python_info[virtualenv]
 $TIME_DISPLAY%f ${vcs_info_msg_0_}%B%F{blue}%# %f%b'
@@ -104,10 +106,10 @@ $TIME_DISPLAY%f ${vcs_info_msg_0_}%B%F{blue}%# %f%b'
 }
 
 function set_vpn_status() {
-  local tunnel_up=`/sbin/ifconfig -a | /usr/bin/egrep '^tun0' 2> /dev/null | /usr/bin/wc -l | /usr/bin/tr -d ' '`
+  local tunnel_up=`/sbin/ifconfig -a | /usr/bin/egrep '^inet 10.1.22' 2> /dev/null | /usr/bin/wc -l | /usr/bin/tr -d ' '`
   if [[ $tunnel_up == 1 ]]; then
       export WORK_VPN=1
-      export VPN_PROMPT='%K{blue}%F{black} VPN %f%k'
+      export VPN_PROMPT="%K{blue}%F{black} VPN %f%k"
   else
       export WORK_VPN=0
       export VPN_PROMPT=""

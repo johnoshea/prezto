@@ -46,11 +46,13 @@ path=(
   ~/bin
 )
 
+
 EXTRA_PATHS=(
     /usr/local/opt/coreutils
     /Library/Developer/Toolchains/swift-latest.xctoolchain
     ${HOME}/.cargo/bin
     ${HOME}/go/bin
+    /usr/local/opt/sqlite/bin
 )
 for EXTRA_PATH in $EXTRA_PATHS; do
   if [[ -d $EXTRA_PATH ]]; then
