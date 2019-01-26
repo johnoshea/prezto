@@ -48,7 +48,7 @@ path=(
 
 EXTRA_PATHS=(
     ${HOME}/.local/bin
-    /usr/local/opt/coreutils
+    /usr/local/opt/coreutils/libexec/gnubin
     /Library/Developer/Toolchains/swift-latest.xctoolchain
     ${HOME}/.poetry/bin
     ${HOME}/.cargo/bin
