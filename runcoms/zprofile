@@ -52,6 +52,7 @@ EXTRA_PATHS=(
     /Library/Developer/Toolchains/swift-latest.xctoolchain
     ${HOME}/.poetry/bin
     ${HOME}/.cargo/bin
+    ${HOME}/.node/bin
     ${HOME}/go/bin
     /usr/local/opt/sqlite/bin
 )
