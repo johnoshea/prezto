@@ -12,7 +12,9 @@
 pmodload 'helper' 'spectrum'
 
 # Correct commands.
-setopt CORRECT
+if zstyle -T ':prezto:module:utility' correct; then
+  setopt CORRECT
+fi
 
 #
 # Aliases
