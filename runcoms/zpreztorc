@@ -40,7 +40,8 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'fasd' \
   'docker' \
-  'prompt'
+  'prompt' \
+  'tmux'
 
 #
 # Autosuggestions

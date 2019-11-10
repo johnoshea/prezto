@@ -47,3 +47,6 @@ fi
 
 alias tmuxa="tmux $_tmux_iterm_integration new-session -A"
 alias tmuxl='tmux list-sessions'
+
+alias tma="tmux attach -d -t"
+alias git-tmux="tmux new -s $(basename $(pwd))"
