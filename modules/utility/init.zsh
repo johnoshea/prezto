@@ -159,9 +159,9 @@ fi
 alias rg="rg --colors 'path:fg:green' --colors 'path:style:intense' --colors 'line:style:intense' --colors 'line:fg:green' --colors 'line:style:intense' --colors 'match:fg:yellow' --colors 'match:style:bold' --smart-case"
 
 # macOS Everywhere
-if [[ "$OSTYPE" == darwin* ]]; then
+if is-darwin; then
   alias o='open'
-elif [[ "$OSTYPE" == cygwin* ]]; then
+elif is-cygwin; then
   alias o='cygstart'
   alias pbcopy='tee > /dev/clipboard'
   alias pbpaste='cat /dev/clipboard'
@@ -191,7 +191,7 @@ fi
 alias df='df -kh'
 alias du='du -kh'
 
-if [[ "$OSTYPE" == (darwin*|*bsd*) ]]; then
+if is-darwin || is-bsd; then
   alias topc='top -o cpu'
   alias topm='top -o vsize'
 else
