@@ -53,7 +53,7 @@ EXTRA_PATHS=(
     ${HOME}/.poetry/bin
     ${HOME}/.cargo/bin
     ${HOME}/.node/bin
-    ${HOME}/go/bin
+    ${GOPATH}/bin
     /usr/local/opt/sqlite/bin
 )
 for EXTRA_PATH in $EXTRA_PATHS; do
