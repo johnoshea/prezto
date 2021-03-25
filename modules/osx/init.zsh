@@ -25,3 +25,6 @@ alias pushdf='pushd "$(pfd)"'
 
 # delete the key from memory and hibernate the computer when closing the lid
 alias sleepsafe='sudo pmset -a destroyfvkeyonstandby 1 hibernatemode 25'
+
+# Copy the current directory basename to the clipboard
+alias curd='echo "${PWD##*/}" | pbc'
