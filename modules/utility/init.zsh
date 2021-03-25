@@ -94,6 +94,15 @@ alias reload!='source ~/.zshrc'
 alias ping='ping -c 4 '
 alias ping1k='ping -c 1000 '
 
+# Vimwiki
+alias vw='vi ~/vimwiki/vimwiki/index.md'
+alias vwd='vi -c "VimwikiMakeDiaryNote"'
+
+# Neovim
+alias vi='PYENV_VERSION=py3nvim nvim'
+alias nvim='PYENV_VERSION=py3nvim nvim'
+alias v='PYENV_VERSION=py3nvim nvim'
+
 # ls
 if is-callable 'dircolors'; then
   # GNU Core Utilities

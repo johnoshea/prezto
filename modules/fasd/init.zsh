@@ -55,5 +55,5 @@ function fasd_cd {
 
 # Changes the current working directory interactively.
 alias j='fasd_cd -i'
-alias v='fasd -f -e vim' # quick opening files with vim
+alias v='fasd -f -e vi' # quick opening files with nvim
 alias f='fasd -f -i' # give me a list of possible files
