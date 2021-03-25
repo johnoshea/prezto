@@ -79,6 +79,10 @@ fpath=(
   $fpath
 )
 
+# For some reason `autocd` is no longer set and I'm not sure why
+# so reinstating it here
+setopt autocd
+
 #
 # Less
 #
