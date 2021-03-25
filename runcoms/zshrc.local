@@ -1,0 +1,127 @@
+DEBUG=0
+if [[ $DEBUG == 2 ]]; then
+    echo "Loading local zshrc config: "
+else
+    echo -n "Loading local zshrc config: "
+fi
+
+_echo() {
+    if [[ $DEBUG == 1 ]]; then
+        echo -n "."
+    elif [[ $DEBUG == 2 ]]; then
+        echo "  $1"
+    else
+        # no output
+    fi
+}
+
+_echo "gruvbox"
+[ -f "$HOME/.vim/bundle/gruvbox/gruvbox_256palette_osx.sh" ] && source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette_osx.sh"
+
+if which nodenv > /dev/null; then
+    _echo "nodenv "
+    eval "$(nodenv init -)"
+    export NODENV_ROOT=/usr/local/var/nodenv
+fi
+
+_echo "direnv"
+eval "$(direnv hook zsh)"
+
+_echo "aws_zsh_completer"
+[ -f "${HOME}/.local/bin/aws_zsh_completer.sh" ] && source "${HOME}/.local/bin/aws_zsh_completer.sh"
+
+_echo "fzf"
+[ -f ${HOME}/.fzf.zsh ] && source ${HOME}/.fzf.zsh
+
+if [[ -r ${HOME}/.aliases.local ]]; then
+  _echo "aliases.local"
+  source ${HOME}/.aliases.local
+fi
+
+if which assh > /dev/null; then
+  _echo "assh"
+  alias ssh="assh wrapper ssh"
+fi
+
+if which pyenv > /dev/null; then
+  _echo "pyenv"
+  eval "$(pyenv init - --no-rehash zsh)"
+  eval "$(pyenv virtualenv-init -)"
+  export PYENV_ROOT="$HOME/.pyenv"
+fi
+
+_echo "pipenv"
+#compdef pipenv
+_pipenv() {
+  eval $(env COMMANDLINE="${words[1,$CURRENT]}" _PIPENV_COMPLETE=complete-zsh  pipenv)
+}
+if [[ "$(basename ${(%):-%x})" != "_pipenv" ]]; then
+  autoload -U compinit && compinit
+  compdef _pipenv pipenv
+fi
+
+# Tell Pipenv to use Pyenv-installed Python, if available
+if which pyenv > /dev/null && which pipenv > /dev/null; then
+    export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
+fi
+
+_echo "pipx"
+autoload -U bashcompinit
+bashcompinit
+if which pipx > /dev/null; then
+    eval "$(register-python-argcomplete pipx)"
+fi
+
+if which goenv > /dev/null; then
+  _echo "goenv"
+  eval "$(goenv init -)"
+fi
+
+if which rbenv > /dev/null; then
+  _echo "rbenv"
+  eval "$(rbenv init - --no-rehash zsh)"
+fi
+
+if [[ -r "/usr/local/opt/mcfly/mcfly.zsh" ]]; then
+  source "/usr/local/opt/mcfly/mcfly.zsh"
+fi
+
+# Remove unwanted _mtools completion (breaks my 'mcd' alias)
+compdef -d mcd
+
+# function pytest {
+#     if which pytest > /dev/null; then
+#         if pip list | grep 'pytest-pudb'; then
+#             command pytest --pudb $@
+#         else
+#             command pytest $@
+#         fi
+#     fi
+# }
+
+function browsegit {
+    local repo=$1
+    [[ ! $repo =~ "https://*" ]] && repo="https://github.com/${repo}"
+    local temp="$(mktemp -d)"
+    git clone "${repo}" "${temp}"
+    nvim "${temp}"
+    rm -rf "${temp}"
+}
+
+sudo() {
+    unset -f sudo
+    if [[ "$(uname)" == 'Darwin' ]] && ! grep 'pam_tid.so' /etc/pam.d/sudo --silent; then
+      sudo sed -i -e '1s;^;auth       sufficient     pam_tid.so\n;' /etc/pam.d/sudo
+    fi
+    sudo "$@"
+}
+
+_echo "broot"
+source /Users/johno/Library/Preferences/org.dystroy.broot/launcher/bash/br
+
+_echo "exports"
+export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(vim {})+abort' --layout=reverse --border --info=inline --margin=2,4 --padding=1 --height=40%"
+export PYTHONBREAKPOINT=pudb.set_trace
+export MCFLY_KEY_SCHEME=vim
+export MCFLY_FUZZY=true
+echo " done"
