@@ -99,9 +99,7 @@ alias vw='vi ~/vimwiki/vimwiki/index.md'
 alias vwd='vi -c "VimwikiMakeDiaryNote"'
 
 # Neovim
-alias vi='PYENV_VERSION=py3nvim nvim'
-alias nvim='PYENV_VERSION=py3nvim nvim'
-alias v='PYENV_VERSION=py3nvim nvim'
+alias vi='nvim'
 
 # ls
 if is-callable 'dircolors'; then

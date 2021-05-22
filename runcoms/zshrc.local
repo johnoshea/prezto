@@ -1,5 +1,8 @@
 [ -f "$HOME/.vim/bundle/gruvbox/gruvbox_256palette_osx.sh" ] && source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette_osx.sh"
 
+export EDITOR='nvim'
+export VISUAL='nvim'
+
 if which nodenv > /dev/null; then
     eval "$(nodenv init -)"
     export NODENV_ROOT=/usr/local/var/nodenv
@@ -89,7 +92,7 @@ sudo() {
 
 source /Users/johno/Library/Preferences/org.dystroy.broot/launcher/bash/br
 
-export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(vim {})+abort' --layout=reverse --border --info=inline --margin=2,4 --padding=1 --height=40%"
+export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(vi {})+abort' --layout=reverse --border --info=inline --margin=2,4 --padding=1 --height=40%"
 export PYTHONBREAKPOINT=pudb.set_trace
 export MCFLY_KEY_SCHEME=vim
 export MCFLY_FUZZY=true
