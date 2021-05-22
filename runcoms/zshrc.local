@@ -91,6 +91,7 @@ sudo() {
 }
 
 source /Users/johno/Library/Preferences/org.dystroy.broot/launcher/bash/br
+source /usr/local/opt/git-extras/share/git-extras/git-extras-completion.zsh
 
 export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(vi {})+abort' --layout=reverse --border --info=inline --margin=2,4 --padding=1 --height=40%"
 export PYTHONBREAKPOINT=pudb.set_trace
