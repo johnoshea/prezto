@@ -7,7 +7,7 @@
 #
 
 # Return if requirements are not found.
-if [[ "$TERM" == 'dumb' ]]; then
+if [[ $TERM == 'dumb' ]]; then
   return 1
 fi
 
@@ -15,7 +15,7 @@ fi
 fpath=("${0:h}/external/src" $fpath)
 
 # Add completion for keg-only brewed curl when available.
-if (( $+commands[brew] && ! $+functions[_curl] )) \
+if (( $+commands[brew] )) \
       && [[ -d "${curl_prefix::="$(brew --prefix curl 2> /dev/null)"}" ]]; then
   fpath=("$curl_prefix/share/zsh/site-functions" $fpath)
   unset curl_prefix
@@ -40,7 +40,7 @@ unsetopt FLOW_CONTROL      # Disable start/stop characters in shell editor.
 #
 
 # Standard style used by default for 'list-colors'
-LS_COLORS="${LS_COLORS:-'di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'}"
+LS_COLORS=${LS_COLORS:-'di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'}
 
 #
 # Initialization
