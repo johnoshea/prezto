@@ -22,25 +22,6 @@ if which assh > /dev/null; then
   alias ssh="assh wrapper ssh"
 fi
 
-if which pyenv > /dev/null; then
-  eval "$(pyenv init - --no-rehash zsh)"
-  eval "$(pyenv virtualenv-init -)"
-  export PYENV_ROOT="$HOME/.pyenv"
-fi
-
-#compdef pipenv
-_pipenv() {
-  eval $(env COMMANDLINE="${words[1,$CURRENT]}" _PIPENV_COMPLETE=complete-zsh  pipenv)
-}
-if [[ "$(basename ${(%):-%x})" != "_pipenv" ]]; then
-  autoload -U compinit && compinit
-  compdef _pipenv pipenv
-fi
-
-# Tell Pipenv to use Pyenv-installed Python, if available
-if which pyenv > /dev/null && which pipenv > /dev/null; then
-    export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
-fi
 
 autoload -U bashcompinit
 bashcompinit
