@@ -44,6 +44,7 @@ zstyle ':prezto:load' pmodule \
   'fasd' \
   'osx' \
   'docker' \
+  'python' \
   'prompt' \
   'tmux'
 
