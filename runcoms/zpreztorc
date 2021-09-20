@@ -130,6 +130,9 @@ zstyle ':prezto:module:history-substring-search' globbing-flags ''
 # Enable prefixed search.
 # zstyle ':prezto:module:history-substring-search' prefixed 'yes'
 
+# Set the search prefixed.
+# zstyle ':prezto:module:history-substring-search' prefixed 'yes'
+
 #
 # macOS
 #
