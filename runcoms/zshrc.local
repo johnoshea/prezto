@@ -77,7 +77,9 @@ source /usr/local/opt/git-extras/share/git-extras/git-extras-completion.zsh
 export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(vi {})+abort' --layout=reverse --border --info=inline --margin=2,4 --padding=1 --height=40%"
 export PYTHONBREAKPOINT=pudb.set_trace
 export MCFLY_KEY_SCHEME=vim
-export MCFLY_FUZZY=true
+export MCFLY_FUZZY=2
+export MCFLY_RESULTS=50
+export MCFLY_INTERFACE_VIEW=BOTTOM
 
 # Needed for pyenv when installing older Pythons on Big Sur
 export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib"
