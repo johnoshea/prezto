@@ -1,5 +1,3 @@
-[ -f "$HOME/.vim/bundle/gruvbox/gruvbox_256palette_osx.sh" ] && source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette_osx.sh"
-
 export EDITOR='nvim'
 export VISUAL='nvim'
 
