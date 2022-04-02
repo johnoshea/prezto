@@ -77,7 +77,7 @@ export PYTHONBREAKPOINT=pudb.set_trace
 export MCFLY_KEY_SCHEME=vim
 export MCFLY_FUZZY=2
 export MCFLY_RESULTS=50
-export MCFLY_INTERFACE_VIEW=BOTTOM
+export MCFLY_INTERFACE_VIEW=TOP
 
 # Needed for pyenv when installing older Pythons on Big Sur
 export LDFLAGS="-L/opt/homebrew/opt/zlib/lib -L/opt/homebrew/opt/bzip2/lib"
