@@ -61,15 +61,6 @@ function browsegit {
     rm -rf "${temp}"
 }
 
-sudo() {
-    unset -f sudo
-    if [[ "$(uname)" == 'Darwin' ]] && ! grep 'pam_tid.so' /etc/pam.d/sudo --silent; then
-      sudo sed -i -e '1s;^;auth       sufficient     pam_tid.so\n;' /etc/pam.d/sudo
-    fi
-    sudo "$@"
-}
-
-source /Users/johno/Library/Preferences/org.dystroy.broot/launcher/bash/br
 source /opt/homebrew/opt/git-extras/share/git-extras/git-extras-completion.zsh
 
 export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(vi {})+abort' --layout=reverse --border --info=inline --margin=2,4 --padding=1 --height=40%"
