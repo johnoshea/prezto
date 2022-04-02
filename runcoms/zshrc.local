@@ -5,7 +5,7 @@ export VISUAL='nvim'
 
 if which nodenv > /dev/null; then
     eval "$(nodenv init -)"
-    export NODENV_ROOT=/usr/local/var/nodenv
+    export NODENV_ROOT=/opt/homebrew/var/nodenv
 fi
 
 eval "$(direnv hook zsh)"
@@ -37,8 +37,8 @@ if which rbenv > /dev/null; then
   eval "$(rbenv init - --no-rehash zsh)"
 fi
 
-if [[ -r "/usr/local/opt/mcfly/mcfly.zsh" ]]; then
-  source "/usr/local/opt/mcfly/mcfly.zsh"
+if which mcfly > /dev/null; then
+    eval "$(mcfly init zsh)"
 fi
 
 # Remove unwanted _mtools completion (breaks my 'mcd' alias)
@@ -72,7 +72,7 @@ sudo() {
 }
 
 source /Users/johno/Library/Preferences/org.dystroy.broot/launcher/bash/br
-source /usr/local/opt/git-extras/share/git-extras/git-extras-completion.zsh
+source /opt/homebrew/opt/git-extras/share/git-extras/git-extras-completion.zsh
 
 export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(vi {})+abort' --layout=reverse --border --info=inline --margin=2,4 --padding=1 --height=40%"
 export PYTHONBREAKPOINT=pudb.set_trace
@@ -82,5 +82,5 @@ export MCFLY_RESULTS=50
 export MCFLY_INTERFACE_VIEW=BOTTOM
 
 # Needed for pyenv when installing older Pythons on Big Sur
-export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib"
-export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
+export LDFLAGS="-L/opt/homebrew/opt/zlib/lib -L/opt/homebrew/opt/bzip2/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/zlib/include -I/opt/homebrew/opt/bzip2/include"
