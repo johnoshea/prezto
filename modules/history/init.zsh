@@ -32,6 +32,19 @@ setopt HIST_VERIFY               # Do not execute immediately upon history expan
 setopt HIST_BEEP                 # Beep when accessing non-existent history.
 
 #
+# Variables
+#
+_pmh_histsize=1000000
+zstyle -s ':prezto:module:history' histfile '_pmh_histfile' || _pmh_histfile="${HISTFILE:-${ZDOTDIR:-$HOME}/.zsh_history}"
+zstyle -s ':prezto:module:history' histsize '_pmh_histsize' || _pmh_histsize=10000
+zstyle -s ':prezto:module:history' savehist '_pmh_savehist' || _pmh_savehist=${_pmh_histsize}
+HISTFILE="${_pmh_histfile}"  # The path to the history file.
+HISTSIZE="${_pmh_histsize}"  # The maximum number of events to save in the internal history.
+SAVEHIST="${_pmh_savehist}"  # The maximum number of events to save in the history file.
+HISTORY_IGNORE="(ls|cd|pwd|exit|cd ..|fg)"  # Ignore common, low-information, commands
+unset _pmh_{hist{file,size},savehist}
+
+#
 # Aliases
 #
 

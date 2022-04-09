@@ -49,7 +49,16 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
-  ~/bin
+  $HOME/{,s}bin(N)
+  /opt/{homebrew,local}/{,s}bin(N)
+  /usr/local/{,s}bin(N)
+  $path
+  /opt/homebrew/{bin,sbin}
+  /usr/local/{bin,sbin}
+  /usr/bin
+  /bin
+  /usr/sbin
+  /sbin
 )
 
 EXTRA_PATHS=(
@@ -70,16 +79,6 @@ for EXTRA_PATH in $EXTRA_PATHS; do
   )
   fi
 done
-
-path=(
-  $path
-  /opt/homebrew/{bin,sbin}
-  /usr/local/{bin,sbin}
-  /usr/bin
-  /bin
-  /usr/sbin
-  /sbin
-)
 
 fpath=(
   ${HOME}/.zfunc
