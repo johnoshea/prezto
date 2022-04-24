@@ -70,6 +70,8 @@ export MCFLY_FUZZY=2
 export MCFLY_RESULTS=50
 export MCFLY_INTERFACE_VIEW=TOP
 
+source /Users/johno/.config/broot/launcher/bash/br
+
 # Needed for pyenv when installing older Pythons on Big Sur
 export LDFLAGS="-L/opt/homebrew/opt/zlib/lib -L/opt/homebrew/opt/bzip2/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/zlib/include -I/opt/homebrew/opt/bzip2/include"
