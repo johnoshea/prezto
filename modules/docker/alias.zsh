@@ -9,9 +9,6 @@
 # Aliases
 #
 
-# Use podman instead of docker
-alias docker='podman'
-
 # Docker
 alias dk='docker'
 alias dka='docker attach'
