@@ -103,6 +103,7 @@ alias vwd='vi -c "VimwikiMakeDiaryNote"'
 
 # Neovim
 alias vi='nvim'
+alias nvd='nvim -d'
 
 # ls
 if [[ ${(@M)${(f)"$(ls --version 2>&1)"}:#*GNU *} ]]; then
