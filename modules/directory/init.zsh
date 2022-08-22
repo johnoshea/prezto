@@ -29,14 +29,15 @@ alias d='dirs -v'
 for index ({1..30}) alias "$index"="cd +${index}"; unset index
 
 
-HISTORY_IGNORE='((ls|ll|la|l|clear|cd|tmux|alias|pwd|exit|fc|df|ps|top|history|[bf]g|vim|[mn]vim|zsh|bash)|((ls|rm|mv|rmdir|cat|ll|cd|tmux|fc|history|which|killall|kill|dircolors) *))'
+export HISTORY_IGNORE='((ls|ll|la|l|clear|cd|tmux|alias|pwd|exit|fc|df|ps|top|history|[bf]g|vim?|[mn]vim|zsh|bash)|((ls|rm|mv|rmdir|cat|ll|cd|tmux|fc|history|which|killall|kill|dircolors|j|vim?|[mn]vim) *))'
 
 
- # skip adding "cd" commands to history
 function zshaddhistory() {
-    if [[ $1 = cd\ * ]]; then
-        return 1
-    fi
+    emulate -L zsh
+    ## uncomment if HISTORY_IGNORE
+    ## should use EXTENDED_GLOB syntax
+    setopt extendedglob
+    [[ $1 != ${~HISTORY_IGNORE} ]]
 }
 
 # add a "cd <absolute path>" to history whenever the working directory changes
