@@ -64,6 +64,8 @@ function browsegit {
 
 source /opt/homebrew/opt/git-extras/share/git-extras/git-extras-completion.zsh
 
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
 export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(vi {})+abort' --layout=reverse --border --info=inline --margin=2,4 --padding=1 --height=40%"
 export PYTHONBREAKPOINT=pudb.set_trace
 export MCFLY_KEY_SCHEME=vim
