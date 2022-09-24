@@ -47,6 +47,7 @@ zstyle ':prezto:load' pmodule \
    'node' \
    'python' \
    'prompt' \
+   'zman' \
    'tmux'
 
 #

@@ -65,6 +65,7 @@ alias po='popd'
 alias pu='pushd'
 alias sa='alias | grep -i'
 alias type='type -a'
+alias zman='FZF_DEFAULT_OPTS=--height=90% zman'
 
 # Suffix commands
 alias -g G=' | egrep '
