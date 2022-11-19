@@ -1,12 +1,7 @@
 export EDITOR='nvim'
 export VISUAL='nvim'
 
-if which nodenv > /dev/null; then
-    eval "$(nodenv init -)"
-    export NODENV_ROOT=/opt/homebrew/var/nodenv
-fi
-
-eval "$(direnv hook zsh)"
+source ~/src/dotfiles/completions/_direnv
 
 [ -f "${HOME}/.local/bin/aws_zsh_completer.sh" ] && source "${HOME}/.local/bin/aws_zsh_completer.sh"
 
@@ -25,19 +20,19 @@ fi
 autoload -U bashcompinit
 bashcompinit
 if which pipx > /dev/null; then
-    eval "$(register-python-argcomplete pipx)"
+    source ~/src/dotfiles/completions/_pipx
 fi
 
 if which goenv > /dev/null; then
-  eval "$(goenv init -)"
+    source "${HOME}/src/dotfiles/completions/_goenv"
 fi
 
 if which rbenv > /dev/null; then
-  eval "$(rbenv init - --no-rehash zsh)"
+    source "${HOME}/src/dotfiles/completions/_rbenv"
 fi
 
 if which mcfly > /dev/null; then
-    eval "$(mcfly init zsh)"
+    source "${HOME}/src/dotfiles/completions/_mcfly"
 fi
 
 # Remove unwanted _mtools completion (breaks my 'mcd' alias)
