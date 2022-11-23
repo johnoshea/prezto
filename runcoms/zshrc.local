@@ -35,6 +35,10 @@ if which mcfly > /dev/null; then
     source "${HOME}/src/dotfiles/completions/_mcfly"
 fi
 
+if which fnm > /dev/null; then
+    source "${HOME}/src/dotfiles/completions/_fnm"
+fi
+
 # Remove unwanted _mtools completion (breaks my 'mcd' alias)
 compdef -d mcd
 
