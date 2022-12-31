@@ -1,5 +1,6 @@
 export EDITOR='nvim'
 export VISUAL='nvim'
+export SHELL='/opt/homebrew/bin/zsh'
 
 source ~/src/dotfiles/completions/_direnv
 
