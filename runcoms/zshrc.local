@@ -40,6 +40,10 @@ if which fnm > /dev/null; then
     source "${HOME}/src/dotfiles/completions/_fnm"
 fi
 
+if which cz > /dev/null; then
+    source "${HOME}/src/dotfiles/completions/_cz"
+fi
+
 # Remove unwanted _mtools completion (breaks my 'mcd' alias)
 compdef -d mcd
 
