@@ -63,6 +63,7 @@ path=(
 )
 
 EXTRA_PATHS=(
+    /opt/homebrew/opt/ssh-copy-id/bin
     ${HOME}/.local/bin
     /usr/local/opt/coreutils/libexec/gnubin
     /Library/Developer/Toolchains/swift-latest.xctoolchain
