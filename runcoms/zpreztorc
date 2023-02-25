@@ -38,6 +38,7 @@ zstyle ':prezto:load' pmodule \
    'directory' \
    'syntax-highlighting' \
    'history-substring-search' \
+   'homebrew' \
    'autosuggestions' \
    'git' \
    'ssh' \
