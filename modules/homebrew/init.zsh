@@ -24,6 +24,9 @@ if (( $+commands[brew] )); then
   eval "${(@M)${(f)"$(brew shellenv 2> /dev/null)"}:#export HOMEBREW*}"
 fi
 
+# Don't send analytics to to GA any more
+export HOMEBREW_NO_GOOGLE_ANALYTICS=1
+
 #
 # Aliases
 #
