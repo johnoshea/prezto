@@ -18,12 +18,105 @@ fi
 # that those keys can be used for other things.
 unsetopt flowcontrol
 
-# Put any host-specific config in ~/.zshrc.local
-if [[ -s "${ZDOTDIR:-$HOME}/.zshrc.local" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zshrc.local"
+export EDITOR='nvim'
+export VISUAL='nvim'
+export SHELL='/opt/homebrew/bin/zsh'
+
+
+if which assh > /dev/null; then
+  alias ssh="assh wrapper ssh"
 fi
 
+DIRENV="${HOME}/src/dotfiles/completions/_direnv"
+[ -f ${DIRENV} ] && source ${DIRENV}
+
+AWS_ZSH_COMPLETER="${HOME}/.local/bin/aws_zsh_completer.sh"
+[ -f ${AWS_ZSH_COMPLETER} ] && source ${AWS_ZSH_COMPLETER}
+
+FZF_ZSH="${HOME}/.fzf.zsh"
+[ -f ${FZF_ZSH} ] && source ${FZF_ZSH}
+
+PDM="${HOME}/src/dotfiles/_pdm"
+[ -f ${PDM} ] && source ${PDM}
+
+ALIASES_LOCAL="${HOME}/.aliases.local"
+[ -f ${ALIASES_LOCAL} ] && source ${ALIASES_LOCAL}
+
+GIT_EXTRAS="/opt/homebrew/opt/git-extras/share/git-extras/git-extras-completion.zsh"
+[ -f ${GIT_EXTRAS} ] && source ${GIT_EXTRAS}
+
+ITERM2_SHELL_INTEGRATIONS="${HOME}/.iterm2_shell_integration.zsh"
+[ -f ${ITERM2_SHELL_INTEGRATIONS} ] && source ${ITERM2_SHELL_INTEGRATIONS}
+
+# https://github.com/jeffreytse/zsh-vi-mode
+ZSH_VI_MODE_PLUGIN="$(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
+[ -f ${ZSH_VI_MODE_PLUGIN} ] && source ${ZSH_VI_MODE_PLUGIN}
+
+BROOT="${HOME}/.config/broot/launcher/bash/br"
+[ -f ${BROOT} ] && source ${BROOT}
+
+
+autoload -U bashcompinit
+bashcompinit
+
+
+if which pipx > /dev/null; then
+    source "${HOME}/src/dotfiles/completions/_pipx"
 fi
+
+if which goenv > /dev/null; then
+    source "${HOME}/src/dotfiles/completions/_goenv"
+fi
+
+if which rbenv > /dev/null; then
+    source "${HOME}/src/dotfiles/completions/_rbenv"
+fi
+
+if which mcfly > /dev/null; then
+    source "${HOME}/src/dotfiles/completions/_mcfly"
+fi
+
+if which fnm > /dev/null; then
+    source "${HOME}/src/dotfiles/completions/_fnm"
+fi
+
+if which cz > /dev/null; then
+    source "${HOME}/src/dotfiles/completions/_cz"
+fi
+
+# Remove unwanted _mtools completion (breaks my 'mcd' alias)
+compdef -d mcd
+
+# function pytest {
+#     if which pytest > /dev/null; then
+#         if pip list | grep 'pytest-pudb'; then
+#             command pytest --pudb $@
+#         else
+#             command pytest $@
+#         fi
+#     fi
+# }
+
+function browsegit {
+    local repo=$1
+    [[ ! $repo =~ "https://*" ]] && repo="https://github.com/${repo}"
+    local temp="$(mktemp -d)"
+    git clone "${repo}" "${temp}"
+    nvim "${temp}"
+    rm -rf "${temp}"
+}
+
+export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(vi {})+abort' --layout=reverse --border --info=inline --margin=2,4 --padding=1 --height=40%"
+export PYTHONBREAKPOINT=pudb.set_trace
+export MCFLY_KEY_SCHEME=vim
+export MCFLY_FUZZY=2
+export MCFLY_RESULTS=50
+export MCFLY_INTERFACE_VIEW=TOP
+
+
+# Needed for pyenv when installing older Pythons on Big Sur
+export LDFLAGS="-L/opt/homebrew/opt/zlib/lib -L/opt/homebrew/opt/bzip2/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/zlib/include -I/opt/homebrew/opt/bzip2/include"
 
 function gam() { "/Users/johno/bin/gam/gam" "$@" ; }
 
