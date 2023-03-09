@@ -1,3 +1,7 @@
+if [ -z "$TMUX" ]; then
+  exec tmux new-session -A -s "$(hostname -s)/$(basename $(pwd))"
+fi
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -19,21 +23,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zshrc.local" ]]; then
   source "${ZDOTDIR:-$HOME}/.zshrc.local"
 fi
 
-if [[ $TERM == 'cons25' || $TERM == 'linux' || $ITERM_PROFILE == 'Light' || $ITERM_PROFILE == 'Sidebar' ]]; then
-  true  # Console session or 'demo mode', so not starting tmux
-else
-  if [[ $TMUX != "" ]]; then
-    true    # Tmux/screen already running, so not starting a nested session
-  else
-    if which tmux > /dev/null; then
-      if [[ -r ~/.tmux.conf ]]; then
-        tmux -f ~/.tmux.conf attach
-      else
-        # ...otherwise just start a default tmux session
-        tmux new -s "$(hostname -s)/$(basename $(pwd))"
-      fi
-    fi
-  fi
 fi
 
 function gam() { "/Users/johno/bin/gam/gam" "$@" ; }
