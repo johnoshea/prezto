@@ -87,25 +87,6 @@ fi
 # Remove unwanted _mtools completion (breaks my 'mcd' alias)
 compdef -d mcd
 
-# function pytest {
-#     if which pytest > /dev/null; then
-#         if pip list | grep 'pytest-pudb'; then
-#             command pytest --pudb $@
-#         else
-#             command pytest $@
-#         fi
-#     fi
-# }
-
-function browsegit {
-    local repo=$1
-    [[ ! $repo =~ "https://*" ]] && repo="https://github.com/${repo}"
-    local temp="$(mktemp -d)"
-    git clone "${repo}" "${temp}"
-    nvim "${temp}"
-    rm -rf "${temp}"
-}
-
 export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(vi {})+abort' --layout=reverse --border --info=inline --margin=2,4 --padding=1 --height=40%"
 export PYTHONBREAKPOINT=pudb.set_trace
 export MCFLY_KEY_SCHEME=vim
