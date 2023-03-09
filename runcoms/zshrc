@@ -14,6 +14,13 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(vi {})+abort' --layout=reverse --border --info=inline --margin=2,4 --padding=1 --height=40%"
+export PYTHONBREAKPOINT=pudb.set_trace
+export MCFLY_KEY_SCHEME=vim
+export MCFLY_FUZZY=2
+export MCFLY_RESULTS=50
+export MCFLY_INTERFACE_VIEW=TOP
+
 # By default, ^S freezes terminal output and ^Q resumes it. Disable that so
 # that those keys can be used for other things.
 unsetopt flowcontrol
@@ -86,14 +93,6 @@ fi
 
 # Remove unwanted _mtools completion (breaks my 'mcd' alias)
 compdef -d mcd
-
-export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(vi {})+abort' --layout=reverse --border --info=inline --margin=2,4 --padding=1 --height=40%"
-export PYTHONBREAKPOINT=pudb.set_trace
-export MCFLY_KEY_SCHEME=vim
-export MCFLY_FUZZY=2
-export MCFLY_RESULTS=50
-export MCFLY_INTERFACE_VIEW=TOP
-
 
 # Needed for pyenv when installing older Pythons on Big Sur
 export LDFLAGS="-L/opt/homebrew/opt/zlib/lib -L/opt/homebrew/opt/bzip2/lib"
