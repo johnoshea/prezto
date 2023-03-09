@@ -68,27 +68,27 @@ bashcompinit
 
 
 if which pipx > /dev/null; then
-    source "${HOME}/src/dotfiles/completions/_pipx"
+  source "${HOME}/src/dotfiles/completions/_pipx"
 fi
 
 if which goenv > /dev/null; then
-    source "${HOME}/src/dotfiles/completions/_goenv"
+  source "${HOME}/src/dotfiles/completions/_goenv"
 fi
 
 if which rbenv > /dev/null; then
-    source "${HOME}/src/dotfiles/completions/_rbenv"
-fi
-
-if which mcfly > /dev/null; then
-    source "${HOME}/src/dotfiles/completions/_mcfly"
+  source "${HOME}/src/dotfiles/completions/_rbenv"
 fi
 
 if which fnm > /dev/null; then
-    source "${HOME}/src/dotfiles/completions/_fnm"
+  source "${HOME}/src/dotfiles/completions/_fnm"
 fi
 
 if which cz > /dev/null; then
-    source "${HOME}/src/dotfiles/completions/_cz"
+  source "${HOME}/src/dotfiles/completions/_cz"
+fi
+
+if which mcfly > /dev/null; then
+  source "${HOME}/src/dotfiles/completions/_mcfly"
 fi
 
 # Remove unwanted _mtools completion (breaks my 'mcd' alias)
