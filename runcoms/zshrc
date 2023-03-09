@@ -5,13 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -20,12 +13,6 @@ fi
 # By default, ^S freezes terminal output and ^Q resumes it. Disable that so
 # that those keys can be used for other things.
 unsetopt flowcontrol
-
-# Put any OS-specific config in ~/.zshrc.OS
-OSNAME=$(uname -s)
-if [[ -r ~/.zshrc.$OSNAME ]]; then
-  source ~/.zshrc.$OSNAME
-fi
 
 # Put any host-specific config in ~/.zshrc.local
 if [[ -s "${ZDOTDIR:-$HOME}/.zshrc.local" ]]; then
