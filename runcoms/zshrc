@@ -55,10 +55,6 @@ GIT_EXTRAS="/opt/homebrew/opt/git-extras/share/git-extras/git-extras-completion.
 ITERM2_SHELL_INTEGRATIONS="${HOME}/.iterm2_shell_integration.zsh"
 [ -f ${ITERM2_SHELL_INTEGRATIONS} ] && source ${ITERM2_SHELL_INTEGRATIONS}
 
-# https://github.com/jeffreytse/zsh-vi-mode
-ZSH_VI_MODE_PLUGIN="$(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
-[ -f ${ZSH_VI_MODE_PLUGIN} ] && source ${ZSH_VI_MODE_PLUGIN}
-
 BROOT="${HOME}/.config/broot/launcher/bash/br"
 [ -f ${BROOT} ] && source ${BROOT}
 
