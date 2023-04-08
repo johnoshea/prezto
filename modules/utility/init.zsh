@@ -102,6 +102,9 @@ alias ping1k='ping -c 1000 '
 alias vi='nvim'
 alias nvd='nvim -d'
 
+# Chatblade
+alias cb='chatblade'
+
 # ls
 if [[ ${(@M)${(f)"$(ls --version 2>&1)"}:#*GNU *} ]]; then
   # GNU Core Utilities
