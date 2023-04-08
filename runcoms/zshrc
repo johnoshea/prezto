@@ -25,6 +25,10 @@ export MCFLY_INTERFACE_VIEW=TOP
 export LDFLAGS="-L/opt/homebrew/opt/zlib/lib -L/opt/homebrew/opt/bzip2/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/zlib/include -I/opt/homebrew/opt/bzip2/include"
 
+# Read in API keys
+ENV_FILE="${HOME}/.env"
+[ -f ${ENV_FILE} ] && source ${ENV_FILE}
+
 # By default, ^S freezes terminal output and ^Q resumes it. Disable that so
 # that those keys can be used for other things.
 unsetopt flowcontrol
