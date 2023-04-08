@@ -21,6 +21,10 @@ export MCFLY_FUZZY=2
 export MCFLY_RESULTS=50
 export MCFLY_INTERFACE_VIEW=TOP
 
+# Needed for pyenv when installing older Pythons on Big Sur
+export LDFLAGS="-L/opt/homebrew/opt/zlib/lib -L/opt/homebrew/opt/bzip2/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/zlib/include -I/opt/homebrew/opt/bzip2/include"
+
 # By default, ^S freezes terminal output and ^Q resumes it. Disable that so
 # that those keys can be used for other things.
 unsetopt flowcontrol
@@ -87,14 +91,10 @@ if which mcfly > /dev/null; then
   source "${HOME}/src/dotfiles/completions/_mcfly"
 fi
 
+function gam() { "/Users/johno/bin/gam/gam" "$@" ; }
+
 # Remove unwanted _mtools completion (breaks my 'mcd' alias)
 compdef -d mcd
-
-# Needed for pyenv when installing older Pythons on Big Sur
-export LDFLAGS="-L/opt/homebrew/opt/zlib/lib -L/opt/homebrew/opt/bzip2/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/zlib/include -I/opt/homebrew/opt/bzip2/include"
-
-function gam() { "/Users/johno/bin/gam/gam" "$@" ; }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
