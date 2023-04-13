@@ -25,12 +25,13 @@ unsetopt CLOBBER            # Do not overwrite existing files with > and >>.
 # Aliases
 #
 
-alias -- -='cd -'
-alias d='dirs -v'
-for index ({1..30}) alias "$index"="cd +${index}"; unset index
+if ! zstyle -t ':prezto:module:directory:alias' skip; then
+  alias -- -='cd -'
+  alias d='dirs -v'
+  for index ({1..30}) alias "$index"="cd +${index}"; unset index
+fi
 
-
-export HISTORY_IGNORE='((ls|ll|la|l|clear|cd|tmux|alias|pwd|exit|fc|df|ps|top|history|[bf]g|vim?|[mn]vim|zsh|bash)|((ls|rm|mv|rmdir|cat|ll|cd|tmux|fc|history|which|killall|kill|dircolors|j|vim?|[mn]vim) *))'
+export HISTORY_IGNORE='((ls|ll|la|l|clear|tmux|pwd|exit|fc|df|ps|top|history|[bf]g'
 
 
 function zshaddhistory() {

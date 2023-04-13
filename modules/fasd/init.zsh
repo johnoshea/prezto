@@ -53,7 +53,9 @@ function fasd_cd {
 # Aliases
 #
 
-# Changes the current working directory interactively.
-alias j='fasd_cd -i'
-alias v='fasd -f -e nvim' # quick opening files with nvim
-alias f='fasd -f -i' # give me a list of possible files
+if ! zstyle -t ':prezto:module:fasd:alias' skip; then
+  # Changes the current working directory interactively.
+  alias j='fasd_cd -i'
+  alias v='fasd -f -e nvim' # quick opening files with nvim
+  alias f='fasd -f -i' # give me a list of possible files
+fi

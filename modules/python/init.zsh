@@ -184,6 +184,8 @@ function gpip {
 # Aliases
 #
 
-alias py='python'
-alias py2='python2'
-alias py3='python3'
+if ! zstyle -t ':prezto:module:python:alias' skip; then
+  alias py='python'
+  alias py2='python2'
+  alias py3='python3'
+fi

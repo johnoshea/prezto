@@ -48,8 +48,10 @@ unset _pmh_{hist{file,size},savehist}
 # Aliases
 #
 
-# Lists the ten most used commands.
-alias history-stat="history 0 | awk '{print \$2}' | sort | uniq -c | sort -n -r | head -n20"
+if ! zstyle -t ':prezto:module:history:alias' skip; then
+  # Lists the ten most used commands.
+  alias history-stat="history 0 | awk '{print \$2}' | sort | uniq -c | sort -n -r | head"
+fi
 
 # History grep
 alias h="history 0 | grep "
