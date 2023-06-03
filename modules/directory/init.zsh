@@ -31,7 +31,7 @@ if ! zstyle -t ':prezto:module:directory:alias' skip; then
   for index ({1..30}) alias "$index"="cd +${index}"; unset index
 fi
 
-export HISTORY_IGNORE='((ls|ll|la|l|clear|tmux|pwd|exit|fc|df|ps|top|history|[bf]g'
+export HISTORY_IGNORE='(ls|ll|la|l|clear|tmux|pwd|exit|fc|df|ps|top|history|[bf]g)'
 
 
 function zshaddhistory() {
