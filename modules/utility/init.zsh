@@ -103,7 +103,10 @@ alias vi='nvim'
 alias nvd='nvim -d'
 
 # Chatblade
-alias cb='chatblade'
+alias cb='chatblade --chat-gpt 4 -p default'
+
+# Frogmouth
+alias fm='frogmouth'
 
 # ls
 if [[ ${(@M)${(f)"$(ls --version 2>&1)"}:#*GNU *} ]]; then
