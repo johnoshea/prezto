@@ -109,7 +109,7 @@ alias cb='chatblade --chat-gpt 4 -p default'
 alias fm='frogmouth'
 
 # ls
-if [[ ${(@M)${(f)"$(ls --version 2>&1)"}:#*GNU *} ]]; then
+if [[ ${(@M)${(f)"$(ls --version 2>&1)"}:#*(GNU|lsd) *} ]]; then
   # GNU Core Utilities
 
   if zstyle -T ':prezto:module:utility:ls' dirs-first; then
