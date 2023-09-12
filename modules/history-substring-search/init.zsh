@@ -42,8 +42,12 @@ if zstyle -t ':prezto:module:history-substring-search' fuzzy; then
   HISTORY_SUBSTRING_SEARCH_FUZZY=1
 fi
 
-if zstyle -t ':prezto:module:history-substring-search' ensure-unique; then
+if zstyle -t ':prezto:module:history-substring-search' unique; then
   HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
+fi
+
+if zstyle -t ':prezto:module:history-substring-search' prefixed; then
+  HISTORY_SUBSTRING_SEARCH_PREFIXED=1
 fi
 
 #

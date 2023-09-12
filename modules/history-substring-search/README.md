@@ -65,10 +65,19 @@ _`${ZDOTDIR:-$HOME}/.zpreztorc`_:
 zstyle ':prezto:module:history-substring-search' globbing-flags ''
 ```
 
+### Case sensitive search
+
+To set the search case-sensitivity, add the following line to
+_`${ZDOTDIR:-$HOME}/.zpreztorc`_:
+
+```sh
+zstyle ':prezto:module:history-substring-search' case-sensitive 'yes'
+```
+
 ### Fuzzy search
 
-To enable fuzzy search add the following line to
-`${ZDOTDIR:-$HOME}/.zpreztorc`_:
+To enable search for fuzzy matches, add the following line to
+_`${ZDOTDIR:-$HOME}/.zpreztorc`_:
 
 ```sh
 zstyle ':prezto:module:history-substring-search' fuzzy 'yes'
@@ -76,11 +85,20 @@ zstyle ':prezto:module:history-substring-search' fuzzy 'yes'
 
 ### Unique results
 
-To retrieve only unique results (remove duplicates) add the following line to
-`${ZDOTDIR:-$HOME}/.zpreztorc`_:
+To enable unique results, add the following line to
+_`${ZDOTDIR:-$HOME}/.zpreztorc`_:
 
 ```sh
-zstyle ':prezto:module:history-substring-search' ensure-unique 'yes'
+zstyle ':prezto:module:history-substring-search' unique 'yes'
+```
+
+### Prefixed search
+
+To enable prefixed search matches, add the following line to
+_`${ZDOTDIR:-$HOME}/.zpreztorc`_:
+
+```sh
+zstyle ':prezto:module:history-substring-search' prefixed 'yes'
 ```
 
 ## Authors
