@@ -73,6 +73,7 @@ EXTRA_PATHS=(
     ${HOME}/.node/bin
     ${GOPATH}/bin
     /usr/local/opt/sqlite/bin
+    /Applications/PyCharm.app/Contents/MacOS
 )
 for EXTRA_PATH in $EXTRA_PATHS; do
   if [[ -d $EXTRA_PATH ]]; then
