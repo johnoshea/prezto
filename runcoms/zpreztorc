@@ -36,7 +36,6 @@ zstyle ':prezto:load' pmodule \
    'osx' \
    'history' \
    'directory' \
-   'fzf-tab' \
    'syntax-highlighting' \
    'history-substring-search' \
    'homebrew' \
@@ -49,15 +48,6 @@ zstyle ':prezto:load' pmodule \
    'python' \
    'prompt' \
    'tmux'
-
-
-#
-# fzf-tab
-#
-zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd -1 --color=always $realpath' # single-quote to prevent expansion
-zstyle ':fzf-tab:*' popup-min-size 50 8
-zstyle ':fzf-tab:complete:cd:*' popup-pad 30 0
 
 
 #
