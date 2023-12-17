@@ -1,5 +1,5 @@
 if [ -z "$TMUX" ]; then
-  exec tmux new-session -A -s "$(hostname -s)/$(basename $(pwd))"
+  exec tmux new-session -A -s "$(hostname -s)"
 fi
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
