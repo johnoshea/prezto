@@ -54,8 +54,7 @@ AWS_ZSH_COMPLETER="${HOME}/.local/bin/aws_zsh_completer.sh"
 FZF_ZSH="${HOME}/.fzf.zsh"
 [ -f ${FZF_ZSH} ] && source ${FZF_ZSH}
 
-PDM="${HOME}/src/dotfiles/_pdm"
-[ -f ${PDM} ] && source ${PDM}
+pdm completion zsh >! ~/.zfunc/_pdm
 
 ALIASES_LOCAL="${HOME}/.aliases.local"
 [ -f ${ALIASES_LOCAL} ] && source ${ALIASES_LOCAL}
