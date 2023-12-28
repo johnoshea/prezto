@@ -103,7 +103,7 @@ alias vi='nvim'
 alias nvd='nvim -d'
 
 # Chatblade
-alias cb='chatblade --chat-gpt 4 -p default'
+alias cb='chatblade --chat-gpt gpt-4-1106-preview -p default'
 
 # Frogmouth
 alias fm='frogmouth'
