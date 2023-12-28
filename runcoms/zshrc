@@ -95,10 +95,6 @@ if which fnm > /dev/null; then
   source "${HOME}/src/dotfiles/completions/_fnm"
 fi
 
-if which cz > /dev/null; then
-  source "${HOME}/src/dotfiles/completions/_cz"
-fi
-
 if which mcfly > /dev/null; then
   source "${HOME}/src/dotfiles/completions/_mcfly"
 fi
