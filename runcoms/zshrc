@@ -104,5 +104,11 @@ function gam() { "/Users/johno/bin/gam/gam" "$@" ; }
 # Remove unwanted _mtools completion (breaks my 'mcd' alias)
 compdef -d mcd
 
+function n {
+    cd "$(fd "^${*}" "${HOME}" --max-depth 4 --type d --color never | fzf --select-1 --query "${*}")"
+    ls
+}
+
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
