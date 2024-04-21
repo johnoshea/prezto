@@ -24,10 +24,6 @@ export FZF_DEFAULT_OPTS=" \
 --layout=reverse --border --info=inline \
 --margin=2,4 --padding=1 --height=50%"
 export PYTHONBREAKPOINT=pudb.set_trace
-export MCFLY_KEY_SCHEME=vim
-export MCFLY_FUZZY=2
-export MCFLY_RESULTS=50
-export MCFLY_INTERFACE_VIEW=TOP
 export NODE_OPTIONS=--max_old_space_size=8192
 
 # Needed for pyenv when installing older Pythons on Big Sur
@@ -95,8 +91,8 @@ if which fnm > /dev/null; then
   source "${HOME}/src/dotfiles/completions/_fnm"
 fi
 
-if which mcfly > /dev/null; then
-  source "${HOME}/src/dotfiles/completions/_mcfly"
+if which atuin > /dev/null; then
+  source "${HOME}/src/dotfiles/completions/_atuin"
 fi
 
 function gam() { "/Users/johno/bin/gam/gam" "$@" ; }
