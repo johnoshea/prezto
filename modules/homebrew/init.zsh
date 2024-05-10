@@ -34,9 +34,6 @@ if (( $+commands[brew] )); then
   unset cache_file
 fi
 
-# Don't send analytics to to GA any more
-export HOMEBREW_NO_GOOGLE_ANALYTICS=1
-
 #
 # Aliases
 #
